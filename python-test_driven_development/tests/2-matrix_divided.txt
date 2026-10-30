@@ -22,6 +22,14 @@ Division with integer divisor:
     >>> matrix_divided([[3, 9], [12, 15]], 3)
     [[1.0, 3.0], [4.0, 5.0]]
 
+Division with float('inf') as divisor (all values become 0.0):
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+Matrix containing float('inf') and float('nan'):
+    >>> matrix_divided([[float('inf'), 2], [3, float('nan')]], 2)
+    [[inf, 1.0], [1.5, nan]]
+
 Testing matrix error (not a list):
     >>> matrix_divided(None, 3)
     Traceback (most recent call last):
@@ -69,3 +77,15 @@ Testing zero division error (float 0.0):
     Traceback (most recent call last):
     ...
     ZeroDivisionError: division by zero
+
+Testing missing one argument:
+    >>> matrix_divided([[1, 2], [3, 4]])
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Testing missing two arguments:
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
