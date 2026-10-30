@@ -24,6 +24,7 @@ def lazy_matrix_mul(m_a, m_b):
     if not isinstance(m_a, seq) or not isinstance(m_b, seq):
         raise ValueError("Scalar operands are not allowed, use '*' instead")
 
+    ragged = "setting an array element with a sequence."
     try:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
@@ -31,10 +32,11 @@ def lazy_matrix_mul(m_a, m_b):
             b = np.array(m_b)
     except ValueError:
         # ragged lists (newer NumPy refuses to build the array)
-        raise ValueError("Object arrays are not currently supported")
+        raise ValueError(ragged)
 
     if a.dtype == object or b.dtype == object:
-        raise ValueError("Object arrays are not currently supported")
+        # ragged lists (older NumPy builds an object array)
+        raise ValueError(ragged)
     if a.dtype.kind in "US" or b.dtype.kind in "US":
         raise TypeError("invalid data type for einsum")
     if a.ndim == 0 or b.ndim == 0:
