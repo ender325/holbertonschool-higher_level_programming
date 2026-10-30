@@ -1,0 +1,50 @@
+======================================
+How to use add_integer
+======================================
+
+Import the function:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Basic addition with integers:
+    >>> add_integer(1, 2)
+    3
+
+Addition with negative numbers:
+    >>> add_integer(100, -2)
+    98
+
+Using the default value for b (98):
+    >>> add_integer(2)
+    100
+
+Addition with floats (should cast to integers):
+    >>> add_integer(10.5, 3.2)
+    13
+
+Mixing integers and floats:
+    >>> add_integer(4, 5.8)
+    9
+
+Testing error handling for 'a' (non-integer/non-float):
+    >>> add_integer("Hello", 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Testing error handling for 'b' (non-integer/non-float):
+    >>> add_integer(4, "World")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Testing with None for 'a':
+    >>> add_integer(None, 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Testing with booleans (booleans are subclasses of int in Python, but should raise TypeError based on strict evaluation):
+    >>> add_integer(True, 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
