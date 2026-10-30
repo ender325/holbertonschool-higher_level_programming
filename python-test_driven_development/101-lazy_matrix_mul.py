@@ -10,13 +10,13 @@ def lazy_matrix_mul(m_a, m_b):
     """Multiply two matrices using numpy.matmul.
 
     Args:
-        m_a: first matrix (list of lists of ints/floats)
-        m_b: second matrix (list of lists of ints/floats)
+        m_a: first matrix
+        m_b: second matrix
 
     Returns:
         The product of m_a and m_b as a numpy array.
-
-    Exceptions raised by NumPy (ValueError, TypeError) are not caught,
-    so they propagate with NumPy's own messages.
     """
+    seq = (list, tuple, np.ndarray)
+    if not isinstance(m_a, seq) or not isinstance(m_b, seq):
+        raise ValueError("Scalar operands are not allowed, use '*' instead")
     return np.matmul(m_a, m_b)
