@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-"""Module 0-rectangle
-Defines an empty Rectangle class.
+"""
+This is the Square module.
+
+The Square module contains the Square class
 """
 
 
-class Rectangle:
-    """Empty class."""
+class Square:
+    """
+    This is an empty class
+    """
     pass
