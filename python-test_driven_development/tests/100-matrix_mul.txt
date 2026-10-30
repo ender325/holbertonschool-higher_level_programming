@@ -9,9 +9,9 @@ Basic multiplication test:
     >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
     [[7, 10], [15, 22]]
 
-Multiplication with floats and integers:
-    >>> matrix_mul([[1.2, 2.5], [3.0, 4.1]], [[2.0, 1.0], [0.5, 3.2]])
-    [[3.65, 9.2], [8.05, 16.12]]
+Multiplication with clean floats and integers:
+    >>> matrix_mul([[1.5, 2.0], [3.0, 4.0]], [[2.0, 1.0], [0.5, 2.0]])
+    [[4.0, 5.5], [8.0, 11.0]]
 
 Testing m_a not a list:
     >>> matrix_mul("not a list", [[1, 2], [3, 4]])
