@@ -1,0 +1,71 @@
+======================================
+How to use matrix_divided
+======================================
+
+Import the function:
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Basic division test with integers:
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Verify that the initial matrix is not modified:
+    >>> matrix
+    [[1, 2, 3], [4, 5, 6]]
+
+Division with floats and negative numbers:
+    >>> matrix_divided([[1.5, 2.8], [3.1, -4.5]], 2.0)
+    [[0.75, 1.4], [1.55, -2.25]]
+
+Division with integer divisor:
+    >>> matrix_divided([[3, 9], [12, 15]], 3)
+    [[1.0, 3.0], [4.0, 5.0]]
+
+Testing matrix error (not a list):
+    >>> matrix_divided(None, 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing matrix error (not list of lists):
+    >>> matrix_divided([1, 2, 3], 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing matrix error (element inside row is not a number):
+    >>> matrix_divided([[1, 2], [3, "hello"]], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing row size error (unequal row lengths):
+    >>> matrix_divided([[1, 2, 3], [4, 5]], 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+Testing div error (string divisor):
+    >>> matrix_divided([[1, 2], [3, 4]], "2")
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+Testing div error (boolean divisor):
+    >>> matrix_divided([[1, 2], [3, 4]], True)
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+Testing zero division error (int 0):
+    >>> matrix_divided([[1, 2], [3, 4]], 0)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+Testing zero division error (float 0.0):
+    >>> matrix_divided([[1, 2], [3, 4]], 0.0)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
