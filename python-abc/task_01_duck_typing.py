@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Defines an abstract base class Shape, concrete subclasses Circle and Rectangle,
-and a duck-typing utility function shape_info.
+"""Defines an abstract base class Shape, concrete subclasses Circle
+and Rectangle, and a duck-typing utility function shape_info.
 """
 from abc import ABC, abstractmethod
 import math
@@ -11,12 +11,12 @@ class Shape(ABC):
 
     @abstractmethod
     def area(self):
-        """Calculate the area of the shape."""
+        """Calculate and return the area of the shape."""
         pass
 
     @abstractmethod
     def perimeter(self):
-        """Calculate the perimeter of the shape."""
+        """Calculate and return the perimeter of the shape."""
         pass
 
 
@@ -63,22 +63,9 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
-    """Prints the area and perimeter of any object with area() and perimeter() methods.
+    """Prints the area and perimeter of any object with area()
 
-    Relies entirely on duck typing without explicit type-checking.
+    and perimeter() methods, relying entirely on duck typing.
     """
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
-
-
-if __name__ == "__main__":
-    # Instantiate a Circle and a Rectangle
-    my_circle = Circle(5)
-    my_rectangle = Rectangle(4, 6)
-
-    # Test the shape_info function
-    print("--- Circle Information ---")
-    shape_info(my_circle)
-
-    print("\n--- Rectangle Information ---")
-    shape_info(my_rectangle)
