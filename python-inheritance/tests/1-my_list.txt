@@ -1,0 +1,29 @@
+MyList class
+===================
+
+Importing the class:
+>>> MyList = __import__('1-my_list').MyList
+
+Testing print_sorted with normal integers:
+>>> my_list = MyList([3, 1, 4, 1, 5, 9, 2])
+>>> print(my_list)
+[3, 1, 4, 1, 5, 9, 2]
+>>> my_list.print_sorted()
+[1, 1, 2, 3, 4, 5, 9]
+>>> print(my_list)
+[3, 1, 4, 1, 5, 9, 2]
+
+Testing print_sorted with negative numbers:
+>>> my_list = MyList([-5, 3, 0, -1, 2])
+>>> my_list.print_sorted()
+[-5, -1, 0, 2, 3]
+
+Testing print_sorted with an empty list:
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
+
+Testing print_sorted with a single element:
+>>> my_list = MyList([42])
+>>> my_list.print_sorted()
+[42]
