@@ -27,7 +27,7 @@ class Circle(Shape):
         """Initialize a new Circle.
 
         Args:
-            radius (float): The radius of the circle.
+            radius (float/int): The radius of the circle.
         """
         self.radius = radius
 
@@ -47,8 +47,8 @@ class Rectangle(Shape):
         """Initialize a new Rectangle.
 
         Args:
-            width (float): The width of the rectangle.
-            height (float): The height of the rectangle.
+            width (float/int): The width of the rectangle.
+            height (float/int): The height of the rectangle.
         """
         self.width = width
         self.height = height
@@ -64,8 +64,6 @@ class Rectangle(Shape):
 
 def shape_info(shape):
     """Prints the area and perimeter of any object with area()
-
     and perimeter() methods, relying entirely on duck typing.
     """
-    print(f"Area: {shape.area()}")
-    print(f"Perimeter: {shape.perimeter()}")
+    print(f"Area: {shape.area()}Perimeter: {shape.perimeter()}")
