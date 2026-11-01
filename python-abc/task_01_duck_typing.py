@@ -67,8 +67,8 @@ def shape_info(shape):
 
     Relies entirely on duck typing without explicit type-checking.
     """
-    print(f"Area: {shape.area():.2f}")
-    print(f"Perimeter: {shape.perimeter():.2f}")
+    print(f"Area: {shape.area()}")
+    print(f"Perimeter: {shape.perimeter()}")
 
 
 if __name__ == "__main__":
