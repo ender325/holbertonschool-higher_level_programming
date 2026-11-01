@@ -15,7 +15,7 @@ Testing integer_validator with valid values:
 >>> bg.integer_validator("age", 25)
 >>> bg.integer_validator("width", 89)
 
-Testing integer_validator with non-integer (TypeError):
+Testing integer_validator with non-integer types (TypeError):
 >>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
 ...
@@ -31,6 +31,26 @@ Traceback (most recent call last):
 ...
 TypeError: flag must be an integer
 
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
 Testing integer_validator with value <= 0 (ValueError):
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
@@ -41,3 +61,9 @@ ValueError: age must be greater than 0
 Traceback (most recent call last):
 ...
 ValueError: width must be greater than 0
+
+Testing integer_validator with missing arguments (TypeError):
+>>> bg.integer_validator("age")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
