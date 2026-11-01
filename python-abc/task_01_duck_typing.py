@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Shapes with an abstract base class and duck typing."""
+"""Module that defines shapes using an abstract base class and duck typing."""
 from abc import ABC, abstractmethod
 import math
 
@@ -22,12 +22,15 @@ class Circle(Shape):
     """A circle defined by its radius."""
 
     def __init__(self, radius):
+        """Initialize the circle with a radius."""
         self.radius = radius
 
     def area(self):
+        """Return the area of the circle."""
         return math.pi * self.radius ** 2
 
     def perimeter(self):
+        """Return the perimeter (circumference) of the circle."""
         return 2 * math.pi * self.radius
 
 
@@ -35,26 +38,20 @@ class Rectangle(Shape):
     """A rectangle defined by its width and height."""
 
     def __init__(self, width, height):
+        """Initialize the rectangle with a width and a height."""
         self.width = width
         self.height = height
 
     def area(self):
+        """Return the area of the rectangle."""
         return self.width * self.height
 
     def perimeter(self):
+        """Return the perimeter of the rectangle."""
         return 2 * (self.width + self.height)
 
 
 def shape_info(shape):
-    """Print the area and perimeter of any object that has
-    area() and perimeter() methods (duck typing)."""
+    """Print the area and perimeter of a shape using duck typing."""
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
-
-
-if __name__ == "__main__":
-    circle = Circle(5)
-    rectangle = Rectangle(4, 7)
-
-    shape_info(circle)
-    shape_info(rectangle)
